@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.HashMap;
 
+
 // there are 3 types of input that the program takes:
 // LOAN : Format - LOAN BANK_NAME BORROWER_NAME PRINCIPAL NO_OF_YEARS RATE_OF_INTEREST
 // PAYMENT :  PAYMENT BANK_NAME BORROWER_NAME LUMP_SUM_AMOUNT EMI_NO

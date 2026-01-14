@@ -4,8 +4,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Loan {
-    private final String borrowerName;
-    private final String bankName;
+    final String borrowerName;
+    final String bankName;
     private final int principalAmount;
     private final int years;
     private final int roi;
@@ -14,6 +14,7 @@ public class Loan {
     Map<Integer,Integer> lumpSums = new TreeMap<>();
 
     //constructor for the Loan class which will initialize all the values properly
+    // this is responsible for creating a new Loan Object
     Loan(String[] inpLine) {
         this.bankName = inpLine[1];
         this.borrowerName = inpLine[2];
@@ -57,7 +58,6 @@ public class Loan {
         // have to handle the case when lumpSums is null
         if(lumpSums != null) {
             for (Map.Entry<Integer, Integer> entry : this.lumpSums.entrySet()) {
-
                 if(entry.getKey() <= emiMonth) {
                     lumpSumPayments += entry.getValue();
                 }
@@ -79,6 +79,7 @@ public class Loan {
             remainingEMIs = calculateRemainingEMI(remainingAmount);
         }
 
-        System.out.printf("%s %s %.2f %d %n", this.bankName, this.borrowerName, amountPaid, remainingEMIs);
+        View view = new View();
+        View.renderView(this,amountPaid,remainingEMIs);
     }
 }
